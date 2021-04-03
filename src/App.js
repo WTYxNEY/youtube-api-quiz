@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "react-bootstrap";
+import Heading from "./components/Heading";
+import User from "./components/User";
+import Content from "./components/Content";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Youtube from "./components/Youtube/Youtube";
+import VideoDetail from "./components/Youtube/VideoDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Container>
+        <Router>
+          <Route exact path="/">
+            <Youtube />
+          </Route>
+          <Route path="/profile">
+            <Heading />
+            <User />
+            <Content />
+          </Route>
+        </Router>
+      </Container>
     </div>
   );
 }
